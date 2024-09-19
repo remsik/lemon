@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,12 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    'myapp/static',
 ]
 
 WSGI_APPLICATION = 'littleLemon.wsgi.application'

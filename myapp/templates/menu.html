@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <p> Menu </p>
+    <p> This is a Menu page for Little Lemon </p>
+    {% if menu %}
+        {% for item in menu %}
+            <a href=" {% url 'menu_item' pk=item.pk %} ">
+                {{ item.name }}
+            </a>
+            {{ item.name }} : {{ item.price }}
+            <br>
+        {% endfor %}
+    {% else %}
+        <p> No items to display !</p>
+    {% endif %}
+{% endblock %}
