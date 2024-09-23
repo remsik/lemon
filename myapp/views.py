@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Menu
+from .models import Contact
 
 
 # Create your views here for menu.
@@ -30,3 +31,26 @@ def display_menu_items(request, pk=None):
     else:
         menu_item = ''
     return render(request, 'menu_item.html', {"menu_item": menu_item})
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Save to the database
+        contact = Contact(email=email, message=message)
+        contact.save()
+
+        # Optionally, send an email
+        # send_mail(
+        #     'Contact Form Submission',
+        #     message,
+        #     email,
+        #     [settings.DEFAULT_FROM_EMAIL],
+        #     fail_silently=False,
+        # )
+        #
+        # return redirect('thank_you')  # Redirect to a thank-you page or somewhere
+
+    return render(request, 'partials/_footer.html')
