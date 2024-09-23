@@ -11,5 +11,16 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
+      - name: Create .venv folder
+        run: mkdir ~/projects/actions-runner/_work/lemon/lemon/venv
+      - name: Create virtual environment
+        run: python -m venv ~/projects/actions-runner/_work/lemon/lemon/venv
+      - name: Activate virtual environment
+        run: source ~/projects/actions-runner/_work/lemon/lemon/venv/bin/activate
+      - name: Add packages from requirements.txt
+        run: pip install -r ~/projects/actions-runner/_work/lemon/lemon/requirements.txt
       - name: Run the webserver
-        run: python manage.py runserver
+        run: python ~/projects/actions-runner/_work/lemon/lemon/manage.py runserver
+      - name: Connect with reverse proxy
+        run: (cd ~/projects/pi_home_reverse_proxy  && make connect)
+        
