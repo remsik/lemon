@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Your Site Title</title>
+</head>
+<body>
+
+<!-- Your content goes here -->
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>Information about the website, company, etc.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'menu' %}">menu</a></li>
+                    <li><a href="{% url 'book' %}">book</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-form">
+                <h2>Contact Us</h2>
+                <form action="{% url 'about' %}" method="post">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="Your email address..." required>
+                    <textarea name="message" rows="4" placeholder="Your message..." required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 YourSite | Designed by You
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
+<style>
+    .footer {
+        background: #333;
+        color: #fff;
+        height: auto;
+        padding-top: 20px;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer .footer-section {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .footer .footer-section h2 {
+        color: #fff;
+    }
+
+    .footer .links ul {
+        list-style: none;
+    }
+
+    .footer .links ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer .links ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .footer .contact-form input, .footer .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .footer .contact-form button {
+        background: #00aaff;
+        border: none;
+        padding: 10px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+        border-top: 1px solid #444;
+    }
+</style>
