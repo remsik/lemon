@@ -20,7 +20,7 @@ jobs:
       - name: Add packages from requirements.txt
         run: /home/berry/projects/actions-runner/_work/lemon/lemon/venv/bin/pip install -r ~/projects/actions-runner/_work/lemon/lemon/requirements.txt
       - name: Run the webserver
-        run: /home/berry/projects/actions-runner/_work/lemon/lemon/venv/bin/python ~/projects/actions-runner/_work/lemon/lemon/manage.py runserver &
+        run: /home/berry/projects/actions-runner/_work/lemon/lemon/venv/bin/python ~/projects/actions-runner/_work/lemon/lemon/manage.py runserver > /dev/null 2>&1 &
       - name: Connect with reverse proxy
-        run: (cd ~/projects/pi_home_reverse_proxy  && make connect) &
+        run: (cd ~/projects/pi_home_reverse_proxy  && make connect) > /dev/null 2>&1 & 
         
