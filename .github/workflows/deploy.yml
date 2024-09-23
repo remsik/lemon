@@ -18,7 +18,7 @@ jobs:
       - name: Activate virtual environment
         run: source ~/projects/actions-runner/_work/lemon/lemon/venv/bin/activate
       - name: Add packages from requirements.txt
-        run: pip install -r ~/projects/actions-runner/_work/lemon/lemon/requirements.txt
+        run: /home/berry/projects/actions-runner/_work/lemon/lemon/venv/bin/pip install -r ~/projects/actions-runner/_work/lemon/lemon/requirements.txt
       - name: Run the webserver
         run: python ~/projects/actions-runner/_work/lemon/lemon/manage.py runserver
       - name: Connect with reverse proxy
