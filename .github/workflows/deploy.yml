@@ -22,5 +22,5 @@ jobs:
       - name: Run the webserver
         run: /home/berry/projects/actions-runner/_work/lemon/lemon/venv/bin/python ~/projects/actions-runner/_work/lemon/lemon/manage.py runserver &
       - name: Connect with reverse proxy
-        run: (cd ~/projects/pi_home_reverse_proxy  && make connect)
+        run: (cd ~/projects/pi_home_reverse_proxy  && make connect) &
         
